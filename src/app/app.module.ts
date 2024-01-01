@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CustomHttpInterceptor } from './http.interceptor';
+import { CustomHttpInterceptor } from './utilities/http.interceptor';
 
 @NgModule({
     imports: [HttpClientModule],

@@ -11,37 +11,7 @@
             </button>
         </div>
         <div *ngIf="searchResults.length > 0" class="search-results">
-            <nz-list nzItemLayout="vertical">
-                <nz-list-item *ngFor="let result of searchResults">
-                    <nz-list-item-meta>
-                        <nz-list-item-meta-title>
-                            <a href="{{ result.href }}">{{ result.title }}</a>
-                        </nz-list-item-meta-title>
-                        <nz-list-item-meta-description>
-                            {{ result.description }}
-                        </nz-list-item-meta-description>
-                    </nz-list-item-meta>
-                    {{ result.content }}
-                    <ul nz-list-item-actions>
-                        <li nz-list-item-action>
-                            <span nz-icon nzType="star-o" style="margin-right: 8px;"></span>
-                            156
-                        </li>
-                        <li nz-list-item-action>
-                            <span nz-icon nzType="star-o" style="margin-right: 8px;"></span>
-                            156
-                        </li>
-                        <li nz-list-item-action>
-                            <span nz-icon nzType="star-o" style="margin-right: 8px;"></span>
-                            2
-                        </li>
-                    </ul>
-                    <nz-list-item-extra>
-                        <img width="272" alt="logo"
-                            src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />
-                    </nz-list-item-extra>
-                </nz-list-item>
-            </nz-list>
+            <app-search-results [searchResults]="searchResults"></app-search-results>
         </div>
     </div>
 </div>

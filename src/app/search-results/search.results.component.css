@@ -73,33 +73,3 @@ button:hover {
     background-color: #138d75;
     /* Dark Green - Darker on hover */
 }
-
-.search-results {
-    /* Styles for displaying search results */
-    width: 100%;
-    margin-top: 20px;
-}
-
-.result-item {
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #34495e;
-    /* Midnight Blue */
-    border-radius: 4px;
-}
-
-.result-item a {
-    color: #3498db;
-    /* Blue */
-    text-decoration: none;
-}
-
-.result-item a:hover {
-    text-decoration: underline;
-}
-
-.result-item img {
-    max-width: 100%;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}

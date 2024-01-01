@@ -3,12 +3,13 @@ import { Component } from '@angular/core';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { SearchResultsComponent } from '../search-results/search.results.component';
 
 @Component({
   selector: 'app-search',
   standalone: true,
   templateUrl: 'search.component.html',
-  imports: [CommonModule, NzListModule, NzInputModule, NzButtonModule],
+  imports: [CommonModule, NzListModule, NzInputModule, NzButtonModule, SearchResultsComponent],
   styleUrls: ['search.component.less']
 })
 export class SearchComponent {

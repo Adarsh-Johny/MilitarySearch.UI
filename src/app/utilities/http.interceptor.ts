@@ -1,5 +1,3 @@
-// http.interceptor.ts
-
 import { Injectable } from '@angular/core';
 import {
     HttpRequest,
@@ -15,13 +13,13 @@ export class CustomHttpInterceptor implements HttpInterceptor {
         request: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        // Add a custom header to each request
         const modifiedRequest = request.clone({
             setHeaders: {
-                'X-Custom-Header': 'CustomHeaderValue',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
             },
+            withCredentials: true,
         });
-        // Pass the modified request to the next handler
         return next.handle(modifiedRequest);
     }
 }
