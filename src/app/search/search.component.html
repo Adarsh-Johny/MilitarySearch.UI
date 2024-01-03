@@ -4,13 +4,14 @@
     </div>
     <div class="search-container">
         <div class="search-bar">
-            <input nz-input type="text" placeholder="Uncover military secrets..." />
-            <button (click)="search()" nz-button nzType="primary">
+            <input nz-input class="search-input" type="text" [(ngModel)]="searchText"
+                placeholder="Uncover military secrets..." />
+            <button (click)="search()" [disabled]="searchText.length === 0" nz-button nzType="primary">
                 <span nz-icon nzType="search"></span>
                 Search
             </button>
         </div>
-        <div *ngIf="searchResults.length > 0" class="search-results">
+        <div class="search-results">
             <app-search-results [searchResults]="searchResults"></app-search-results>
         </div>
     </div>
