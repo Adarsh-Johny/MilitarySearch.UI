@@ -7,19 +7,31 @@
     background-color: #91b99b69;
 }
 
-.search-title {
-    text-align: center;
+.login-form {
     width: 100%;
-    color: #084705;
 }
 
-.login-button-container {
+.search-button-container {
     width: 100%;
     text-align: right;
     padding-right: 30px;
     padding-top: 20px;
     color: blue !important;
     font-weight: bolder;
+}
+
+.login-title {
+    text-align: center;
+    width: 100%;
+    color: #084705;
+}
+
+.ant-row {
+    display: flex;
+    flex-flow: row wrap;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding-top: 10px;
 }
 
 .search-container {
@@ -41,17 +53,6 @@
     width: 100%;
 }
 
-input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 8px;
-    margin-bottom: 8px;
-    color: #000000;
-    border: none;
-    border-radius: 4px;
-    font-size: 18px;
-}
-
 button {
     width: 100%;
     padding: 8px 16px;
@@ -60,6 +61,7 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -75,9 +77,4 @@ button:hover {
     button {
         width: 100%;
     }
-}
-
-nz-list {
-    width: 100%;
-    margin-top: 20px;
 }

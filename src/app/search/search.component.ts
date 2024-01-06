@@ -6,6 +6,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { SearchResultsComponent } from '../search-results/search.results.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -18,11 +19,10 @@ import { FormsModule } from '@angular/forms';
 export class SearchComponent {
   searchResults: any[] = [];
   searchText: string = "who is the commander of us army";
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   search() {
-    //TODO: Will be replaced in future
-    const apiEndpoint = 'http://127.0.0.1:5000/api/search';
+    const apiEndpoint = 'api/search';
     const request = {
       searchText: this.searchText,
       country: "Us army",
@@ -43,31 +43,9 @@ export class SearchComponent {
   handleError(error: any) {
     console.error('Error fetching data from the API', error);
   }
+
+  public navigateToUrl() {
+    this.router.navigate(['/login']);
+  }
+
 }
-
-
-//   search() {
-//     this.searchResults = [
-//       {
-//         avatar: 'https://example.com/avatar.jpg',
-//         href: 'https://example.com/link1',
-//         title: 'Result 1',
-//         description: 'Description for Result 1',
-//         content: 'Additional content for Result 1'
-//       },
-//       {
-//         avatar: 'https://example.com/avatar.jpg',
-//         href: 'https://example.com/link2',
-//         title: 'Result 2',
-//         description: 'Description for Result 2',
-//         content: 'Additional content for Result 2'
-//       },
-//       {
-//         avatar: 'https://example.com/avatar.jpg',
-//         href: 'https://example.com/link3',
-//         title: 'Result 3',
-//         description: 'Description for Result 3',
-//         content: 'Additional content for Result 3'
-//       },
-//     ];
-//   }
