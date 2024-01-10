@@ -21,25 +21,21 @@ export class LoginComponent {
   constructor(private http: HttpClient, private router: Router, private fb: FormBuilder) {
 
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      remember: [true]
+      username: [null, [Validators.required]],
+      password: [null, [Validators.required]]
     });
   }
 
   authenticationInfo: any;
-  username: any = '';
-  password: any = '';
 
   navigateToUrl(url: string) {
     this.router.navigate([url]);
   }
 
   submitForm() {
-    const apiEndpoint = 'api/user/auth';
+    const apiEndpoint = 'http://127.0.0.1:5000/api/login';
     const request = {
-      username: this.username,
-      password: this.password
+      ...this.validateForm.value
     }
 
     this.http.post(apiEndpoint, request)

@@ -16,8 +16,7 @@ export class CustomHttpInterceptor implements HttpInterceptor {
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
         const modifiedRequest = request.clone({
-            url: `${this.apiUrlPrefix}${request.url}`,
-            withCredentials: true,
+            url: `${this.apiUrlPrefix}${request.url}`
         });
 
         return next.handle(modifiedRequest);
