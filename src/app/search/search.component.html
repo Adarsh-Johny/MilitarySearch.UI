@@ -1,6 +1,8 @@
 <div class="full-page-container">
     <div class="login-button-container">
-        <a (click)="navigateToUrl()">Login</a>
+        <a (click)="navigateToUrl('/login')">Login</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a (click)="navigateToUrl('/list')">View all armies</a>
     </div>
     <div class="search-container">
         <div class="search-title">

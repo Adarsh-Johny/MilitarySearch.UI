@@ -6,13 +6,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.less'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, NzInputModule, NzButtonModule, NzGridModule]
+  imports: [FormsModule, ReactiveFormsModule, NzInputModule, NzButtonModule, NzDividerModule, NzGridModule]
 })
 export class LoginComponent {
   validateForm: FormGroup;
@@ -30,8 +31,8 @@ export class LoginComponent {
   username: any = '';
   password: any = '';
 
-  navigateToUrl() {
-    this.router.navigate(['/search']);
+  navigateToUrl(url: string) {
+    this.router.navigate([url]);
   }
 
   submitForm() {
