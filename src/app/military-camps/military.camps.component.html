@@ -1,0 +1,22 @@
+<nz-table #basicTable [nzData]="data">
+    <thead>
+        <tr>
+            <th>Location</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Service Branch</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of basicTable.data">
+            <td>{{data.location}}</td>
+            <td>{{data.latitude}}</td>
+            <td>{{data.longitude}}</td>
+            <td>{{data.serviceBranch}}</td>
+            <td>{{data.status}}</td>
+            <td>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>
