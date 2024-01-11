@@ -7,26 +7,28 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { AuthService } from '../auth.service';
+import { NzMessageModule, NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.less'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, NzInputModule, NzButtonModule, NzDividerModule, NzGridModule]
+  imports: [FormsModule, ReactiveFormsModule, NzInputModule, NzMessageModule,
+    NzButtonModule, NzDividerModule, NzGridModule]
 })
 export class LoginComponent {
   validateForm: FormGroup;
 
-  constructor(private http: HttpClient, private router: Router, private fb: FormBuilder) {
+  constructor(private http: HttpClient, private router: Router, private message: NzMessageService,
+    private authService: AuthService, private fb: FormBuilder) {
 
     this.validateForm = this.fb.group({
       username: [null, [Validators.required]],
       password: [null, [Validators.required]]
     });
   }
-
-  authenticationInfo: any;
 
   navigateToUrl(url: string) {
     this.router.navigate([url]);
@@ -46,12 +48,11 @@ export class LoginComponent {
   }
 
   handleSuccessResponse(response: any) {
-    this.authenticationInfo = response;
-    this.router.navigate(['/home']); //TODO remove when login is working
+    this.authService.setAuthentication(true);
+    this.router.navigate(['/home']);
   }
 
   handleError(error: any) {
-    console.error('Error fetching data from the API', error);
-    this.router.navigate(['/home']); //TODO remove when login is working
+    this.message.error('Incorrect username or password. Please check');
   }
 }

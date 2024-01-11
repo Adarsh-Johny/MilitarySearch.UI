@@ -4,6 +4,7 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { MilitaryCampsComponent } from '../military-camps/military.camps.component';
 import { UserInformationComponent } from '../user-information/user.information.component';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-military-information',
@@ -16,10 +17,11 @@ import { Router } from '@angular/router';
   ]
 })
 export class MilitaryInformationComponent {
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService,) {
   }
 
   logout() {
+    this.authService.logout();
     this.router.navigate(['/login']);
   }
 }

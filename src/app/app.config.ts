@@ -7,6 +7,7 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { AuthService } from './auth.service';
 
 registerLocaleData(en);
 
@@ -18,5 +19,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(HttpClientModule),
     provideAnimations(),
     provideHttpClient(withFetch()),
+    AuthService
   ]
 };
