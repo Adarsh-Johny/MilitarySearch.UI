@@ -40,13 +40,14 @@ export class LoginComponent {
 
     this.http.post(apiEndpoint, request)
       .subscribe({
-        next: this.handleUpdateResponse.bind(this),
+        next: this.handleSuccessResponse.bind(this),
         error: this.handleError.bind(this)
       });
   }
 
-  handleUpdateResponse(response: any) {
+  handleSuccessResponse(response: any) {
     this.authenticationInfo = response;
+    this.router.navigate(['/home']); //TODO remove when login is working
   }
 
   handleError(error: any) {

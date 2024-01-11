@@ -36,7 +36,6 @@ export class MilitaryCampsComponent {
   }
 }
 
-
 class MilitaryCamp {
   location: string;
   latitude: string;

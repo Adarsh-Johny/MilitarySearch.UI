@@ -12,7 +12,7 @@ import { NzResultModule } from 'ng-zorro-antd/result';
   standalone: true,
   imports: [CommonModule, NzListModule, NzInputModule, NzButtonModule, NzResultModule, DelayRenderModule],
   templateUrl: 'search.results.component.html',
-  styleUrls: ['search.results.component.css'],
+  styleUrls: ['search.results.component.less'],
   animations: [fadeInOutAnimation]
 
 })
@@ -25,12 +25,10 @@ export class SearchResultsComponent {
 
   extractValue(json: any): string | undefined {
     if (json && typeof json === 'object') {
-      // Check if the current object has a "value" property
       if ('value' in json) {
         return json['value'];
       }
 
-      // Iterate over the object keys and recursively call the function
       for (const key in json) {
         if (json.hasOwnProperty(key)) {
           const innerValue = this.extractValue(json[key]);
@@ -42,8 +40,5 @@ export class SearchResultsComponent {
     }
 
     return undefined;
-  }
-
-  constructor() {
   }
 }

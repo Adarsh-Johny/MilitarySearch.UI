@@ -21,6 +21,5 @@ export class MilitaryInformationComponent {
 
   logout() {
     this.router.navigate(['/login']);
-
   }
 }
