@@ -131,7 +131,9 @@ class MyDataSource extends DataSource<any> {
     keyword = keyword.toLowerCase();
 
     return data.filter((item) =>
-      item.Country.toLowerCase().includes(keyword)
+      item.Country.toLowerCase().includes(keyword) ||
+      item.Url.toLowerCase().includes(keyword)
+
     );
   }
 }
