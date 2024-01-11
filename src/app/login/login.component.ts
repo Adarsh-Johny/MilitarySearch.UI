@@ -51,5 +51,6 @@ export class LoginComponent {
 
   handleError(error: any) {
     console.error('Error fetching data from the API', error);
+    this.router.navigate(['/home']); //TODO remove when login is working
   }
 }

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { MilitaryCampsComponent } from '../military-camps/military.camps.component';
-import { SoldierInformationComponent } from '../soldier-information/soldier.information.component';
 import { UserInformationComponent } from '../user-information/user.information.component';
 import { Router } from '@angular/router';
 
@@ -13,7 +12,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [
     NzTabsModule, NzTableModule, MilitaryCampsComponent,
-    SoldierInformationComponent, UserInformationComponent
+    UserInformationComponent
   ]
 })
 export class MilitaryInformationComponent {

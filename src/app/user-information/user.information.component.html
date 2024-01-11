@@ -6,6 +6,7 @@
             <th>User Name</th>
             <th>Email</th>
             <th>Status</th>
+            <th>Type</th>
         </tr>
     </thead>
     <tbody>
@@ -14,7 +15,8 @@
             <td>{{data.lastName}}</td>
             <td>{{data.userName}}</td>
             <td>{{data.email}}</td>
-            <td>{{data.status}}</td>
+            <td>{{ data.status ? 'ACTIVE' : 'INACTIVE' }}</td>
+            <td>{{data.type}}</td>
         </tr>
     </tbody>
 </nz-table>
