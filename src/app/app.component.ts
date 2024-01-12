@@ -11,5 +11,5 @@ import { SearchComponent } from './search/search.component';
   styleUrl: './app.component.less'
 })
 export class AppComponent {
-  title = 'Military.SemanticSearch.UI';
+  title = 'Military Search';
 }
