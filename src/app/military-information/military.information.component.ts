@@ -23,6 +23,7 @@ import { CommonModule } from '@angular/common';
 export class MilitaryInformationComponent {
   isSliderOpen: boolean = false;
   iframeSrc: SafeResourceUrl = '';
+  eventChange = false;
   constructor(private router: Router, private authService: AuthService, private sanitizer: DomSanitizer) {
   }
 
@@ -38,6 +39,7 @@ export class MilitaryInformationComponent {
   closeSlider(): void {
     this.isSliderOpen = false;
     this.iframeSrc = '';
+    this.eventChange = !this.eventChange;
   }
 
   handleIframeError(event: Event): void {

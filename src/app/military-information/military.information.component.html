@@ -1,10 +1,10 @@
 <div class="container">
     <nz-tabset>
         <nz-tab nzTitle="Military Camps">
-            <app-military-camps></app-military-camps>
+            <app-military-camps [eventChange]="eventChange"></app-military-camps>
         </nz-tab>
         <nz-tab nzTitle="Users">
-            <app-user-information></app-user-information>
+            <app-user-information [eventChange]="eventChange"></app-user-information>
         </nz-tab>
     </nz-tabset>
 

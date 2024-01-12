@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NzTableModule } from 'ng-zorro-antd/table';
 
 @Component({
@@ -11,6 +11,10 @@ import { NzTableModule } from 'ng-zorro-antd/table';
   imports: [NzTableModule, CommonModule]
 })
 export class UserInformationComponent {
+  @Input() set eventChange(value: boolean) {
+    this.getData();
+  }
+
   data: Array<User> = [];
 
   constructor(private http: HttpClient,) {
