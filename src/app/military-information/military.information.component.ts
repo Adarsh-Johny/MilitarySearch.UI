@@ -5,6 +5,10 @@ import { MilitaryCampsComponent } from '../military-camps/military.camps.compone
 import { UserInformationComponent } from '../user-information/user.information.component';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-military-information',
@@ -12,16 +16,31 @@ import { AuthService } from '../auth.service';
   styleUrls: ['military.information.component.less'],
   standalone: true,
   imports: [
-    NzTabsModule, NzTableModule, MilitaryCampsComponent,
-    UserInformationComponent
+    NzTabsModule, NzTableModule, MilitaryCampsComponent, NzDrawerModule,
+    UserInformationComponent, NzDividerModule, CommonModule
   ]
 })
 export class MilitaryInformationComponent {
-  constructor(private router: Router, private authService: AuthService,) {
+  isSliderOpen: boolean = false;
+  iframeSrc: SafeResourceUrl = '';
+  constructor(private router: Router, private authService: AuthService, private sanitizer: DomSanitizer) {
   }
 
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+  showDjangoModal() {
+    this.isSliderOpen = true;
+    this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl("http://localhost:8000/admin");
+  }
+
+  closeSlider(): void {
+    this.isSliderOpen = false;
+    this.iframeSrc = '';
+  }
+
+  handleIframeError(event: Event): void {
+    console.error('Iframe error:', event);
   }
 }
